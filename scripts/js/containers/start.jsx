@@ -1,21 +1,22 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { GraphA } from '../components/graph/index'
+import { SimpleBarChart } from '../components/graph/index'
+import Header from '../components/Header'
 
 const mapStateToProps = (state) => {
   return {
-    shape: state.randShape.shape,
-    visible: state.randVisible.visible
+    shape: state.randShape,
+    visible: state.randVisible,
+    chart: state.randGraph,
   }
 }
 
 class Start extends Component {
-  render() {
-    console.log(this.props);
+  render() {console.log(this.props);
     return (
       <div>
-        <h1>Start</h1>
-        <GraphA></GraphA>
+        <Header />
+        <SimpleBarChart />
       </div>
     )
   }

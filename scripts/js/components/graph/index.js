@@ -1,7 +1,7 @@
-import GraphA from './GraphA'
+import SimpleBarChart from './SimpleBarChart'
 import GraphB from './GraphB'
 
 export {
-  GraphA,
+  SimpleBarChart,
   GraphB,
 }
