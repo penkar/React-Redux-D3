@@ -1,7 +1,12 @@
 import { CREATE_CHART, SCROLL_CHART, REMOVE_CHART } from '../actions'
 
 const initialState = {
-  graphData: [],
+  graphData: [
+    {
+      data: [4,8,15,16,23,42],
+      title: "First Default Chart",
+    }
+  ],
 }
 
 export default function chartData(state = initialState, action){

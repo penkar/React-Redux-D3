@@ -2,6 +2,7 @@ import { CHART, ChangeChart } from '../actions'
 
 const initialState = {
   graph: "barChart",
+  index: 0,
 }
 
 export default function randGraph(state = initialState, action){

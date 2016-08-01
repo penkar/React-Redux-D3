@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { SimpleBarChart } from '../components/graph/index'
 import Header from '../components/Header'
+import GraphContainer from './GraphContainer'
 
 const mapStateToProps = (state) => {
   return {
@@ -12,11 +12,11 @@ const mapStateToProps = (state) => {
 }
 
 class Start extends Component {
-  render() {console.log(this.props);
+  render() {
     return (
       <div>
         <Header />
-        <SimpleBarChart />
+        <GraphContainer />
       </div>
     )
   }
