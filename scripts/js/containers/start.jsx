@@ -14,9 +14,11 @@ const mapStateToProps = (state) => {
 class Start extends Component {
   render() {
     return (
-      <div>
+      <div className="pure-g layout">
         <Header />
-        <GraphContainer />
+        <div className="content pure-u-1 pure-u-md-3-4">
+          <GraphContainer />
+        </div>
       </div>
     )
   }

@@ -1,0 +1,27 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.layout {
+  padding: 0px;
+}
+
+.header{
+  text-align: right;
+  padding: 30% 15px;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background: rgb(61, 79, 93);
+  color: #fff;
+}
+
+.content {
+  padding-left: 25%;
+}

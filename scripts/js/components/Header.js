@@ -7,7 +7,12 @@ class Header extends Component {
 
   render (){
     return (
-      <h2>Simple Header for a currently simple project.</h2>
+      <div className="sidebar pure-u-1-4">
+        <div className="header">
+          <h1 className="brand-title">React / Redux / D3</h1>
+          <h2 className="brand-tagline">Simple Sidebar For A Simple Project</h2>
+        </div>
+      </div>
     )
   }
 }
