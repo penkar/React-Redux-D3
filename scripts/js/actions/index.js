@@ -1,3 +1,4 @@
+'use strict'
 export const MORPH = "MORPH";
 export const VISIBLE = "VISIBLE"
 export const CHART = "CHART"

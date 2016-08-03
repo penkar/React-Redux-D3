@@ -1,3 +1,4 @@
+'use strict'
 import { CHART, ChangeChart } from '../actions'
 
 const initialState = {

@@ -1,3 +1,4 @@
+'use strict'
 import { combineReducers } from 'redux'
 import randShape from './shapeReducer'
 import randVisible from './visibleReducer'

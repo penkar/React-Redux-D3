@@ -1,3 +1,4 @@
+'use strict'
 import { VISIBLE } from '../actions'
 
 const initialState = {

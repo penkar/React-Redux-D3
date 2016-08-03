@@ -1,3 +1,4 @@
+'use strict'
 import { CREATE_CHART, SCROLL_CHART, REMOVE_CHART } from '../actions'
 
 const initialState = {
