@@ -14,8 +14,8 @@ export function ChangeVisible(visible){
   return {type: VISIBLE, visible}
 }
 
-export function ChangeChart(chart){
-  return {type: CHART, chart}
+export function ChangeChart(graph){
+  return {type: CHART, graph}
 }
 
 export function CreateChart(data){ // Chart Data Reducer

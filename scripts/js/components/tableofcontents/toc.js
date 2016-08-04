@@ -1,29 +1,65 @@
+'use strict'
 import React, {Component} from 'react'
+import { connect } from 'react-redux'
+import { ChangeChart } from '../../actions/index'
+import { bindActionCreators } from 'redux'
+
+const mapStateToProps = (state) => {
+  return {
+    state,
+    graph: state.randGraph
+  }
+}
+
+const mapDispatchToProps = function(dispatch){
+  return {
+    dispatch,
+    change: bindActionCreators(ChangeChart, dispatch)
+  }
+};
+
+
 let chartTypes = [
   'BarChart',
   'LineChart',
   'PieChart',
-  'Histogram',  
+  'Histogram',
 ]
 
+class Content extends Component {
+  constructor(props){
+    super(props)
+  }
 
-class TOC extends Component {
+  click(){
+    const CHART = 'CHART'
+    let {graph, dispatch} = this.props
+    this.props.change(graph);
+  }
+
+  render() {
+    return(
+      <li className="pure-menu-item">
+        <a onClick={::this.click} className="pure-menu-link">{this.props.current ? "Now viewing: " : ""}{this.props.graph}</a>
+      </li>
+    )
+  }
+}
+
+class TableOfContents extends Component {
   constructor(props){
     super(props);
   }
 
   contents(){
-    return chartTypes.map((chart, idx)=>{
-      return(
-        <li key={idx} className="pure-menu-item">
-          <a className="pure-menu-link">{chart}</a>
-        </li>
+    let {change, graph} = this.props;
+    return chartTypes.map((graphA, idx)=>{
+      return(<Content graph={graphA} key={idx} change={change} current={graphA === graph.graph}/>
       )
     })
-
   }
 
-  render() {
+  render() {console.log(this.props)
     return (
       <div className="pure-menu" style={{display:'inline-block'}}>
         <span className="pure-menu-heading">Change Chart Type</span>
@@ -36,18 +72,9 @@ class TOC extends Component {
   }
 }
 
+const TOC = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TableOfContents)
+
 export default TOC
-// <div class="pure-menu custom-restricted-width">
-//     <span class="pure-menu-heading">Yahoo Sites</span>
-//
-//     <ul class="pure-menu-list">
-//         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Flickr</a></li>
-//         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Messenger</a></li>
-//         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sports</a></li>
-//         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Finance</a></li>
-//         <li class="pure-menu-heading">More Sites</li>
-//         <li class="pure-menu-item"><a href="#" class="pure-menu-link">Games</a></li>
-//         <li class="pure-menu-item"><a href="#" class="pure-menu-link">News</a></li>
-//         <li class="pure-menu-item"><a href="#" class="pure-menu-link">OMG!</a></li>
-//     </ul>
-// </div>
