@@ -16,15 +16,15 @@ class SimpleBarChart extends Component{
     )
   }
 
-  createRows() {
-    let {data} = this.props.data;
+  createRows(data) {
     return data.map((data, idx)=> {return ::this.createRow(idx, data)});
   }
 
   render() {
+    let {data} = this.props.data;
     return (
-      <svg class="chart" width="100%" height="120">
-        {::this.createRows()}
+      <svg class="chart" width="100%" height={(data.length * 20).toString() + 'px'}>
+        {::this.createRows(data)}
       </svg>
     )
   }

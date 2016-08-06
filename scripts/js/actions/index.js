@@ -18,8 +18,11 @@ export function ChangeChart(graph){
   return {type: CHART, graph}
 }
 
-export function CreateChart(data){ // Chart Data Reducer
-  return {type: CREATE_CHART, data}
+export function CreateChart(size){ // Chart Data Reducer
+  let title = size.toString() + " Chart Created Total"
+  let data = Array.from({length: 10}, () => Math.floor(Math.random() * 50));
+  let graph = {title, data}
+  return {type: CREATE_CHART, graph}
 }
 
 export function ScrollChart(index){ // Chart Data Reducer
