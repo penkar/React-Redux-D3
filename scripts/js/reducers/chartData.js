@@ -16,7 +16,8 @@ export default function chartData(state = initialState, action){
       let data = action.data
       return Object.assign({}, state, data);
     case SCROLL_CHART:
-      return state; //Object.assign({}, state, chart);
+      let { index } = action
+      return Object.assign({}, state, index);
     case REMOVE_CHART:
       return state; //Object.assign({}, state, chart);
     default:

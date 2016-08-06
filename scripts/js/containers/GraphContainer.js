@@ -1,24 +1,38 @@
 'use strict'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { SimpleBarChart } from '../components/graph/index'
+import { SimpleBarChart, Commands } from '../components/graph/index'
 
 const mapStateToProps = (state) => {
   let chart = state.chartData.graphData[state.randGraph.index];
   return {
+    size: state.chartData.graphData.length,
+    index: state.randGraph.index,
     chart: state.randGraph,
     data: chart,
   }
 }
 
 class Container extends Component {
-  render() {
+  chart() {
     switch (this.props.chart.graph) {
       case 'barChart':
         return <SimpleBarChart data={this.props.data}/>
       default:
         return <SimpleBarChart data={this.props.data}/>
     }
+  }
+
+  render() {
+    console.log(this.props);
+    let {index, size} = this.props
+    let commands   = {index, size}
+    return (
+      <div>
+        { ::this.chart() }
+        <Commands {...commands}/>
+      </div>
+    )
   }
 }
 
