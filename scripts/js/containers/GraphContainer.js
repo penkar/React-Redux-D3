@@ -23,7 +23,7 @@ class Container extends Component {
     }
   }
 
-  render() { console.log(this.props);
+  render() {
     let {index, size} = this.props
     let commands   = {index, size}
     return (

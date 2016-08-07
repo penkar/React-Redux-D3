@@ -12,17 +12,18 @@ const initialState = {
 }
 
 export default function chartData(state = initialState, action){
-  let {graphData} = state;//action.data
+  let { graphData } = state;//action.data
+  let { index } = action
   switch (action.type) {
     case CREATE_CHART:
       graphData.push(action.graph)
-      return Object.assign({}, state, {graphData}, {index: graphData.length - 1})
+      return Object.assign({}, state, { graphData }, {index: graphData.length - 1 })
     case SCROLL_CHART:
-      let { index } = action
-      return Object.assign({}, state, {index});
+      return Object.assign({}, state, { index });
     case REMOVE_CHART:
       graphData.splice(action.index, 1);
-      return Object.assign({}, state, {graphData});
+      let idx = Math.max(action.index - 1, 0);
+      return Object.assign({}, state, { graphData, index: idx });
     default:
       return state;
   }

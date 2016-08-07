@@ -30,6 +30,7 @@ class Commands extends Component {
   }
 
   removeChart(){
+    let { index } = this.props;
     this.props.RemoveChart(index);
   }
 
@@ -43,7 +44,7 @@ class Commands extends Component {
         <button className="btn-success pure-button" onClick={ ::this.createChart }>
           Create Chart
         </button>
-        <button className="btn-error pure-button" disabled={ !(size-1) }>
+        <button className="btn-error pure-button" onClick={ ::this.removeChart } disabled={ !(size-1) }>
           Delete Chart
         </button>
         <button className="btn-secondary pure-button" onClick={ ()=> ::this.scrollChart(index+1) } disabled={ size === ( index + 1 ) }>
