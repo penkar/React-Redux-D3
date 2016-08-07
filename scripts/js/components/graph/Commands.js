@@ -18,32 +18,36 @@ const mapDispatchToProps = (dispatch) => {
 
 class Commands extends Component {
   constructor(props){
-    super(props)
+    super(props);
   }
 
   createChart(){//console.log(this.props)
-    this.props.CreateChart(this.props.size)
+    this.props.CreateChart(this.props.size);
   }
 
-  scrollChart(){
-
+  scrollChart(index){
+    this.props.ScrollChart(index);
   }
 
   removeChart(){
-
+    this.props.RemoveChart(index);
   }
 
   render() {
     let {size, index} = this.props;
     return (
       <div>
-        <button className="btn-secondary pure-button" disabled={ !index }>Previous Chart
+        <button className="btn-secondary pure-button" onClick={()=> ::this.scrollChart(index-1)} disabled={ !index }>
+          Previous Chart
         </button>
-        <button className="btn-success pure-button" onClick={::this.createChart}>Create Chart
+        <button className="btn-success pure-button" onClick={ ::this.createChart }>
+          Create Chart
         </button>
-        <button className="btn-error pure-button" disabled={ !index }>Delete Chart
+        <button className="btn-error pure-button" disabled={ !(size-1) }>
+          Delete Chart
         </button>
-        <button className="btn-secondary pure-button" disabled={ size === ( index + 1 ) }>Next Chart
+        <button className="btn-secondary pure-button" onClick={ ()=> ::this.scrollChart(index+1) } disabled={ size === ( index + 1 ) }>
+          Next Chart
         </button>
       </div>
     )

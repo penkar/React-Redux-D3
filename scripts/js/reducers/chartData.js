@@ -2,6 +2,7 @@
 import { CREATE_CHART, SCROLL_CHART, REMOVE_CHART } from '../actions'
 
 const initialState = {
+  index: 0,
   graphData: [
     {
       data: [40, 18, 15, 16, 23, 42, 8, 44, 32, 5],
@@ -11,17 +12,17 @@ const initialState = {
 }
 
 export default function chartData(state = initialState, action){
+  let {graphData} = state;//action.data
   switch (action.type) {
     case CREATE_CHART:
-      let {graphData} = state;//action.data
-      console.log(action);
       graphData.push(action.graph)
-      return Object.assign({}, state, {graphData})
+      return Object.assign({}, state, {graphData}, {index: graphData.length - 1})
     case SCROLL_CHART:
       let { index } = action
-      return Object.assign({}, state, index);
+      return Object.assign({}, state, {index});
     case REMOVE_CHART:
-      return state; //Object.assign({}, state, chart);
+      graphData.splice(action.index, 1);
+      return Object.assign({}, state, {graphData});
     default:
       return state;
   }

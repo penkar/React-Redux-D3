@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 import { SimpleBarChart, Commands } from '../components/graph/index'
 
 const mapStateToProps = (state) => {
-  let chart = state.chartData.graphData[state.randGraph.index];
+  let chart = state.chartData.graphData[state.chartData.index];
   return {
     size: state.chartData.graphData.length,
-    index: state.randGraph.index,
+    index: state.chartData.index,
     chart: state.randGraph,
     data: chart,
   }
@@ -23,8 +23,7 @@ class Container extends Component {
     }
   }
 
-  render() {
-    console.log(this.props);
+  render() { console.log(this.props);
     let {index, size} = this.props
     let commands   = {index, size}
     return (
