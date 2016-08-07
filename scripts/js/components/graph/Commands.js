@@ -40,13 +40,13 @@ class Commands extends Component {
       <div>
         <button className="btn-secondary pure-button" onClick={()=> ::this.scrollChart(index-1)} disabled={ !index }>
           Previous Chart
-        </button>
+        </button>&nbsp;
         <button className="btn-success pure-button" onClick={ ::this.createChart }>
           Create Chart
-        </button>
+        </button>&nbsp;
         <button className="btn-error pure-button" onClick={ ::this.removeChart } disabled={ !(size-1) }>
           Delete Chart
-        </button>
+        </button>&nbsp;
         <button className="btn-secondary pure-button" onClick={ ()=> ::this.scrollChart(index+1) } disabled={ size === ( index + 1 ) }>
           Next Chart
         </button>

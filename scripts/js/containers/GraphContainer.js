@@ -1,7 +1,7 @@
 'use strict'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { SimpleBarChart, Commands } from '../components/graph/index'
+import { GraphTitle, SimpleBarChart, Commands } from '../components/graph/index'
 
 const mapStateToProps = (state) => {
   let chart = state.chartData.graphData[state.chartData.index];
@@ -24,10 +24,11 @@ class Container extends Component {
   }
 
   render() {
-    let {index, size} = this.props
-    let commands   = {index, size}
+    let {index, size, data} = this.props
+    let commands = {index, size}
     return (
       <div>
+        <GraphTitle title={data.title} />
         { ::this.chart() }
         <Commands {...commands}/>
       </div>
