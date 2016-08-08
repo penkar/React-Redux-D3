@@ -1,6 +1,7 @@
 'use strict'
 import React, { Component } from 'react'
 import d3 from 'd3'
+import pallette from '../pallette'
 
 class SimpleBarChart extends Component{
   constructor(props) {
@@ -8,9 +9,10 @@ class SimpleBarChart extends Component{
   }
 
   createRow(index, value) {
+    let colors = pallette.chartfill;
     return (
       <g key={index} transform={`translate(0,${index * 20})`}>
-        <rect height="20" width={value * 10}></rect>
+        <rect height="20" width={value * 10} fill={colors[index % colors.length]}></rect>
         <text x={value*10 + 20} y="9.5" dy=".35em">{value}</text>
       </g>
     )
@@ -23,7 +25,7 @@ class SimpleBarChart extends Component{
   render() {
     let {data} = this.props.data;
     return (
-      <svg class="chart" width="100%" height={(data.length * 20).toString() + 'px'}>
+      <svg class="chart" width="100%" height={(data.length * 21).toString() + 'px'}>
         {::this.createRows(data)}
       </svg>
     )

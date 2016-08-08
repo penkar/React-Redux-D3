@@ -17,21 +17,21 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 class Commands extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
   }
 
-  createChart(){//console.log(this.props)
+  createChart() {
     this.props.CreateChart(this.props.size);
   }
 
-  scrollChart(index){
+  scrollChart(index) {
     this.props.ScrollChart(index);
   }
 
-  removeChart(){
-    let { index } = this.props;
-    this.props.RemoveChart(index);
+  removeChart() {
+    let { index, RemoveChart } = this.props;
+    RemoveChart(index);
   }
 
   render() {
