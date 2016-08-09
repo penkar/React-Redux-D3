@@ -2,7 +2,7 @@
 import { CHART, ChangeChart } from '../actions'
 
 const initialState = {
-  graph: "barChart",
+  graph: "BarChart",
   index: 0,
 }
 
