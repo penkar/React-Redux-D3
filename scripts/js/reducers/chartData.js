@@ -3,7 +3,15 @@ import { CREATE_CHART, SCROLL_CHART, REMOVE_CHART } from '../actions'
 
 const initialState = {
   index: 0,
-  graphData: [
+  LineChart: [
+    {
+      title: 'First Default Chart',
+      data: [
+        
+      ],
+    }
+  ],
+  BarChart: [
     {
       data: [40, 18, 15, 16, 23, 42, 8, 44, 32, 5],
       title: "First Default Chart",

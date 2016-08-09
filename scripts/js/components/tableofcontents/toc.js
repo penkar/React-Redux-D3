@@ -59,14 +59,13 @@ class TableOfContents extends Component {
     })
   }
 
-  render() {console.log(this.props)
+  render() {
     return (
       <div className="pure-menu" style={{display:'inline-block'}}>
         <span className="pure-menu-heading">Change Chart Type</span>
         <ul className="pure-menu-list">
           {::this.contents()}
         </ul>
-
       </div>
     )
   }

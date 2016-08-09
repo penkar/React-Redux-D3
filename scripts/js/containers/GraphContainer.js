@@ -3,11 +3,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { GraphTitle, SimpleBarChart, SimpleLineChart, Commands } from '../components/graph/index'
 
-const mapStateToProps = (state) => {
-  let chart = state.chartData.graphData[state.chartData.index];
+const mapStateToProps = (state) => {console.log(state);
+  let { graph } = state.randGraph
+  let {index} = state.chartData
+  let chart = state.chartData[state.randGraph.graph][index];
+  console.log(graph, state.chartData[graph])
   return {
-    size: state.chartData.graphData.length,
-    index: state.chartData.index,
+    size: state.chartData[graph].length,
+    index: index,
     chart: state.randGraph,
     data: chart,
   }
