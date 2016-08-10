@@ -4,7 +4,9 @@ import { CreateChart, ScrollChart, RemoveChart } from '../../actions'
 import { bindActionCreators } from 'redux'
 
 const mapStateToProps = (state) => {
-  return {}
+  return {
+    graph: state.randGraph.graph
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
@@ -22,7 +24,8 @@ class Commands extends Component {
   }
 
   createChart() {
-    this.props.CreateChart(this.props.size);
+    let { CreateChart, graph, size } = this.props
+    CreateChart(this.props.size, graph);
   }
 
   scrollChart(index) {
@@ -30,8 +33,8 @@ class Commands extends Component {
   }
 
   removeChart() {
-    let { index, RemoveChart } = this.props;
-    RemoveChart(index);
+    let { index, graph, RemoveChart } = this.props;
+    RemoveChart(index, graph);
   }
 
   render() {

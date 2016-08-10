@@ -7,7 +7,7 @@ const initialState = {
     {
       title: 'First Default Chart',
       data: [
-        
+
       ],
     }
   ],
@@ -20,7 +20,7 @@ const initialState = {
 }
 
 export default function chartData(state = initialState, action){
-  let { graphData } = state;//action.data
+  let graphData = state[action.style];//action.data
   let { index } = action
   switch (action.type) {
     case CREATE_CHART:

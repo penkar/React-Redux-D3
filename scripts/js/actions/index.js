@@ -18,17 +18,17 @@ export function ChangeChart(graph) {
   return { type: CHART, graph }
 }
 
-export function CreateChart(size) {
+export function CreateChart(size, style) {
   let title = size.toString() + " Charts Created Total"
   let data = Array.from({length: 10}, () => Math.floor(Math.random() * 50));
   let graph = {title, data}
-  return {type: CREATE_CHART, graph}
+  return {type: CREATE_CHART, graph, style}
 }
 
 export function ScrollChart(index) {
   return {type: SCROLL_CHART, index}
 }
 
-export function RemoveChart(index) {
-  return {type: REMOVE_CHART, index}
+export function RemoveChart(index, style) {
+  return {type: REMOVE_CHART, index, style}
 }
