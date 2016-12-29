@@ -1,22 +1,25 @@
 'use strict'
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 
-class SimpleLineChart extends Component {
+export default class SimpleLineChart extends Component {
+  static propTypes = {
+    data: PropTypes.object,
+  }
+
   constructor(props) {
     super(props)
   }
 
-  createLines(){
+  _createLines(data) {
     return null;
   }
 
-  render(){
+  render() {
+    let {data} = this.props.data;
     return(
       <svg>
-        {::this.createLines()}
+        {::this._createLines(data)}
       </svg>
     )
   }
 }
-
-export default SimpleLineChart

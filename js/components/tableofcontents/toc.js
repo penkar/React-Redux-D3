@@ -18,7 +18,6 @@ const mapDispatchToProps = function(dispatch){
   }
 };
 
-
 let chartTypes = [
   'BarChart',
   'LineChart',
@@ -51,7 +50,7 @@ class TableOfContents extends Component {
     super(props);
   }
 
-  contents(){
+  _contents(){
     let {change, graph} = this.props;
     return chartTypes.map((graphA, idx)=>{
       return(<Content graph={graphA} key={idx} change={change} current={graphA === graph.graph}/>
@@ -64,7 +63,7 @@ class TableOfContents extends Component {
       <div className="pure-menu" style={{display:'inline-block'}}>
         <span className="pure-menu-heading">Change Chart Type</span>
         <ul className="pure-menu-list">
-          {::this.contents()}
+          {::this._contents()}
         </ul>
       </div>
     )

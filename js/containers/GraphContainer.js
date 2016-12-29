@@ -17,13 +17,14 @@ const mapStateToProps = (state) => {
 
 class Container extends Component {
   chart() {
+    let {data} = this.props;
     switch (this.props.chart.graph) {
       case 'barChart':
-        return <SimpleBarChart data={this.props.data}/>
+        return <SimpleBarChart data={data}/>
       case 'LineChart':
-        return <SimpleLineChart data={this.props.data} />
+        return <SimpleLineChart data={data} />
       default:
-        return <SimpleBarChart data={this.props.data}/>
+        return <SimpleBarChart data={data}/>
     }
   }
 

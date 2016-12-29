@@ -1,35 +1,34 @@
 'use strict'
-import React, { Component } from 'react'
-import d3 from 'd3'
+import React, { Component, PropTypes } from 'react'
 import pallette from '../pallette'
 
-class SimpleBarChart extends Component{
+export default class SimpleBarChart extends Component{
+  static propTypes = {
+    data: PropTypes.object,
+  }
+
   constructor(props) {
     super(props)
   }
 
-  createRow(index, value) {
+  _createRows(data) {
     let colors = pallette.chartfill;
-    return (
-      <g key={index} transform={`translate(0,${index * 20})`}>
-        <rect height="20" width={value * 10} fill={colors[index % colors.length]}></rect>
-        <text x={value*10 + 20} y="9.5" dy=".35em">{value}</text>
-      </g>
-    )
-  }
-
-  createRows(data) {
-    return data.map((data, idx)=> {return ::this.createRow(idx, data)});
+    return data.map((value, index)=> {
+      return (
+        <g key={index} transform={`translate(0,${index * 20})`}>
+          <rect height="20" width={value * 10} fill={colors[index % colors.length]}></rect>
+          <text x={value*10 + 20} y="9.5" dy=".35em">{value}</text>
+        </g>
+      )
+    });
   }
 
   render() {
     let {data} = this.props.data;
     return (
-      <svg class="chart" width="100%" height={(data.length * 21).toString() + 'px'}>
-        {::this.createRows(data)}
+      <svg className="chart" width="100%" height={(data.length * 21).toString() + 'px'}>
+        {::this._createRows(data)}
       </svg>
     )
   }
 }
-
-export default SimpleBarChart
